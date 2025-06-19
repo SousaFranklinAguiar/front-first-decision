@@ -142,19 +142,16 @@
   transform: translateY(0);
 }
 
-/* Container para input com ícone à esquerda */
 .input-with-icon-left {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-/* Ajuste o padding do input para o ícone */
 .input-with-icon-left .form-control {
-  padding-left: 40px; /* Espaço para o ícone à esquerda */
+  padding-left: 40px;
 }
 
-/* Estilo do ícone de olho à esquerda */
 .input-with-icon-left .password-toggle {
   position: absolute;
   left: 12px;
@@ -170,14 +167,12 @@
   color: #333;
 }
 
-/* Estilo do ícone */
 .input-with-icon-left .password-toggle mat-icon {
   font-size: 20px;
   width: 20px;
   height: 20px;
 }
 
-/* Ajuste para inputs inválidos */
 .input-with-icon-left .is-invalid {
-  padding-left: 50px; /* Mais espaço se tiver validação */
+  padding-left: 50px;
 }

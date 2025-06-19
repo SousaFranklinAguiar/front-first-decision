@@ -37,11 +37,11 @@ export class CadastroComponent {
 
     this.usuarioService.cadastrar(this.cadastroForm.value).subscribe({
       next: (res) => {
-        alert('Usuário registrado com sucesso!');
+        alert(res.mensagem);
         this.cadastroForm.reset();
       },
       error: (err) => {
-        alert('Erro: ' + err.error);
+        alert('Erro: ' + err.error.erro);
       }
     });
   }

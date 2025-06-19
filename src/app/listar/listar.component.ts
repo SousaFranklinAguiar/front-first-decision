@@ -18,25 +18,24 @@ export class ListarComponent implements OnInit{
   }
 
   carregarUsuarios(): void {
-    // Simulando dados - substitua pela chamada real ao serviço
     this.usuarioService.listar().subscribe(
       (usuarios: any[]) => {
         this.usuarios = usuarios;
       },
       (erro) => {
-        console.error('Erro ao carregar usuários', erro);
+        alert('Erro: ' + erro.error.erro);
       }
     );
   }
 
   excluirUsuario(usuarioId: number): void {
     this.usuarioService.excluir(usuarioId).subscribe(
-      () => {
-        alert('Usuário deletado com sucesso!');
+      (res) => {
+        alert(res.mensagem);
         this.carregarUsuarios();
       },
       (erro) => {
-        console.error('Erro ao excluir usuário', erro);
+        alert('Erro: ' + erro.error.erro);
       }
     );
   }
