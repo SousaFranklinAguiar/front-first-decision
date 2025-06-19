@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Usuários Cadastrados</h2>
+      <p>Lista de usuários do sistema</p>
+    </div>
+
+    <div class="card-body">
+      <div class="table-container">
+        <table class="user-table">
+          <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>
+              <button mat-icon-button color="warn" (click)="excluirUsuario(usuario.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <button mat-raised-button color="primary" routerLink="/cadastro">
+        <mat-icon>person_add</mat-icon>
+        Novo Cadastro
+      </button>
+    </div>
+  </div>
+</div>

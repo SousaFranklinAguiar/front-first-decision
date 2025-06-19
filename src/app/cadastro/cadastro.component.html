@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Crie sua conta</h2>
+      <p>Preencha os campos abaixo para se cadastrar</p>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Nome:</label>
+          <input formControlName="nome"
+                 class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f['nome']?.errors }" />
+          <div *ngIf="submitted && f['nome'].errors" class="invalid-feedback">
+            <div *ngIf="f['nome']?.errors?.['required']">Nome é obrigatório.</div>
+            <div *ngIf="f['nome']?.errors?.['minlength']">Mínimo de 3 caracteres.</div>
+            <div *ngIf="f['nome']?.errors?.['maxlength']">Máximo de 50 caracteres.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>E-mail:</label>
+          <input formControlName="email"
+                 class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f['email']?.errors }"/>
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email']?.errors?.['required']">E-mail é obrigatório.</div>
+            <div *ngIf="f['email']?.errors?.['email']">E-mail inválido.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Senha:</label>
+          <div class="input-with-icon-left">
+            <input [type]="hidePassword ? 'password' : 'text'" formControlName="senha"
+                   class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f['senha']?.errors }"/>
+            <button type="button" mat-icon-button (click)="hidePassword = !hidePassword">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </div>
+          <div *ngIf="submitted && f['senha'].errors" class="invalid-feedback">
+            <div *ngIf="f['senha']?.errors?.['required']">Senha é obrigatória.</div>
+            <div *ngIf="f['senha']?.errors?.['minlength']">Mínimo de 6 caracteres.</div>
+            <div *ngIf="f['senha']?.errors?.['maxlength']">Máximo de 20 caracteres.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Confirmação de Senha:</label>
+          <div class="input-with-icon-left">
+            <input [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmacaoSenha"
+                   class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f['confirmacaoSenha']?.errors }"/>
+            <button type="button" mat-icon-button (click)="hideConfirmPassword = !hideConfirmPassword">
+              <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </div>
+          <div *ngIf="submitted && f['confirmacaoSenha'].errors" class="invalid-feedback">
+            <div *ngIf="f['confirmacaoSenha']?.errors?.['required']">Confirmação é obrigatória.</div>
+          </div>
+          <div *ngIf="submitted && cadastroForm.errors?.['senhasDiferentes']" class="invalid-feedback">
+            <div>As senhas não coincidem.</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</div>

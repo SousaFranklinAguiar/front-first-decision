@@ -1,0 +1,105 @@
+h2, p, th, td{
+  font-family: 'Poppins', sans-serif
+}
+
+:host {
+  display: flow-root;
+  justify-content: center;
+  align-items: center;
+  min-height: 98vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th {
+  background-color: #f5f5f5;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.card-footer {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #eee;
+}
+
+button[mat-raised-button] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button[mat-icon-button] {
+  margin: 0 4px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .card-header, .card-body, .card-footer {
+    padding: 1rem;
+  }
+
+  .user-table th, .user-table td {
+    padding: 8px 12px;
+  }
+}
