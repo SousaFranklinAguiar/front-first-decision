@@ -38,7 +38,7 @@ export class CadastroComponent {
     this.usuarioService.cadastrar(this.cadastroForm.value).subscribe({
       next: (res) => {
         alert(res.mensagem);
-        this.cadastroForm.reset();
+        window.location.reload();
       },
       error: (err) => {
         alert('Erro: ' + err.error.erro);
